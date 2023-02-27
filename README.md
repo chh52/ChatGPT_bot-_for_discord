@@ -1,2 +1,85 @@
 # ChatGPT_bot-_for_discord
-a bot that responds to prompts using ChatGPT's Davinci model 
+a bot for use in discord that responds to prompts using ChatGPT's Davinci model 
+
+---
+
+## Technologies
+
+**Python 3.9** was used to code this app.  
+Libraries used are:
+  discord.py 2.1.0
+  openai 0.26.0
+  python-dotenv 0.21.0
+  requests 2.25.1
+  os
+    
+---
+
+## Installation Guide
+
+in the chatgpt_ai folder:
+If you run the command "pip install -r requirements.txt" it will auto install the necessary libraries, or you can go into requirements.txt and manually install.
+
+I also needed to install SSL since it was giving me an "SSL is not supported" error when I was trying to connect to my server.  
+you can do that by using the following command in terminal/gitbash:  
+"conda install -c anaconda openssl"
+
+OPENAI:
+You will need an openai account at https://openai.com/api/ 
+go to https://platform.openai.com/account/api-keys
+  'Create new secret key' and copy that down as this will be your one chance you can copy it.  (needed for .env file)
+
+
+DISCORD:
+You'll need to create a bot in discord via the discord developer portal https://discord.com/developers/applications
+  >New application
+  >name it whatever you want
+  >create
+
+Click on "Bot" on the left sidebar
+  Make sure "Message Content Intent" is turned on
+  > [Add Bot]
+Click on "OAuth2" on the left sidebar
+  Click on "URL Generator"
+    click on the 'bot' box under SCOPES
+    give the bot admin permissions, or just click the relevant text permissions
+    The generated URL at the bottom will be the link you need to use to add the bot to a new or existing server
+  Click on "General" on the left sidebar
+    Default Authorization Link should be set to Custom URL where you'll paste the URL from URL Generator.
+Click on "Bot"  
+  click on "Reset Token" which will give you your DISCORD_TOKEN (needed for .env file)
+go to the URL Generator link in a web browser to add the bot to servers you have access to.
+
+
+.ENV:
+You will need to create a .env file in the chatgpt_ai folder with the following variables:
+DISCORD_TOKEN and CHATGPT_API_KEY
+
+
+---
+
+## Usage
+
+In terminal, go to the \chatgpt_ai\ folder and run the run.py file -> "python run.py"
+Go to discord where you have it linked and ask it questions using the /ai, /bot, or /chatgpt prefixes.
+  example:  /ai what is 2 plus 2?
+
+Note:   by default, this will limit the responses to 200 tokens, which is about 150 words.  You can adjust the max_tokens variable in chatgpt_ai\openai.py
+        for context, 1000 tokens cost $.02.  I think OpenAI gives you $18 dollars worth of tokens to start for testing purposes.
+---
+
+## Contributors
+
+This was created by Cuong Ha
+
+---
+
+## License
+
+public
+
+
+
+
+
+
